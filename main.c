@@ -32,6 +32,7 @@ int main(void) {
         continue;
       }
     }
+
     else if (options == 3) {
       printf("not working yet\n");
     }
