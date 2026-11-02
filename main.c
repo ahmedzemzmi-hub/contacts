@@ -24,12 +24,17 @@ int main(void) {
       printf("\nemail: ");
       scanf("%s", contact_email);
       printf("\ncontact added!\nsee new changes (y/n): \n");
-      scanf("%c", &changes);
+      scanf(" %c", &changes);
+    changes_invalid_input:
       if (changes == 'y') {
         printf("new contact: %s\ncontact number: %s\ncontact email %s\n", contact_name, contact_number, contact_email);
       }
       else if (changes == 'n') {
         continue;
+      }
+      else if (changes != 'y' && changes != 'n') {
+        printf("invalid input, please try again");
+        goto changes_invalid_input;
       }
     }
 
@@ -39,6 +44,10 @@ int main(void) {
     else if (options == 0) {
       printf("quit\n");
       return 0;
+    }
+    else {
+      printf("invalid input, please try again");
+      continue;
     }
  
   }
